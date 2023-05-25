@@ -50,7 +50,7 @@ COMMENT ON COLUMN produtos.imagem_arquivo 				IS 'Arquivo da imagem do produto.'
 COMMENT ON COLUMN produtos.imagem_charset 				IS 'Charset da imagme do produto.';
 COMMENT ON COLUMN produtos.imagem_ultima_atualizacao 	IS 'Data da ultima atualização da imagem do produto.';
 
--- Constraints
+-- Constraints da tabela produtos
 ALTER TABLE produtos ADD CONSTRAINT chk_produto_id CHECK (produto_id >= 0);
 ALTER TABLE produtos ADD CONSTRAINT chk_nome CHECK (nome <> ' ');
 ALTER TABLE produtos ADD CONSTRAINT chk_preco_unitario CHECK (preco_unitario >= 0);
@@ -84,10 +84,10 @@ COMMENT ON COLUMN lojas.logo_arquivo 				IS 'Arquivo da logo da loja.';
 COMMENT ON COLUMN lojas.logo_charset 				IS 'Logo charset da loja.';
 COMMENT ON COLUMN lojas.logo_ultima_atualizacao 	IS 'Data de ultima atualização da logo da loja.';
 
--- Constraints
-ALTER TABLE lojas ADD CONSTRAINT chk_loja_id CHECK (loja_id >= 0);
-ALTER TABLE lojas ADD CONSTRAINT chk_nome CHECK (nome <> ' ');
-ALTER TABLE lojas ADD CONSTRAINT chk_enderecos CHECK(endereco_web IS not null OR endereco_fisico IS not null);
+-- Constraints da tabela lojas
+ALTER TABLE lojas ADD CONSTRAINT chk_loja_id 	CHECK (loja_id >= 0);
+ALTER TABLE lojas ADD CONSTRAINT chk_nome 		CHECK (nome <> ' ');
+ALTER TABLE lojas ADD CONSTRAINT chk_enderecos 	CHECK(endereco_web IS not null OR endereco_fisico IS not null);
 
 -- Cria a tabela "estoques" e adiciona os comentários
 CREATE TABLE estoques (
@@ -104,7 +104,7 @@ COMMENT ON COLUMN estoques.loja_id 	IS 'Id da loja que realizou o estoque. (FK d
 COMMENT ON COLUMN estoques.produto_id IS 'Id do produto em estoque. (FK da tabela produtos).';
 COMMENT ON COLUMN estoques.quantidade IS 'Quantidade do produto estocado.';
 
--- Constraints
+-- Constraints da tabela estoques
 ALTER TABLE estoques ADD CONSTRAINT chk_estoque_id CHECK (estoque_id >= 0);
 ALTER TABLE estoques ADD CONSTRAINT chk_quantidade CHECK (quantidade >= 0);
 
@@ -128,7 +128,7 @@ COMMENT ON COLUMN clientes.telefone1 	IS 'Número de telefone do cliente.';
 COMMENT ON COLUMN clientes.telefone2 	IS 'Segundo número telefone do cliente.';
 COMMENT ON COLUMN clientes.telefone3 	IS 'Terceiro número de telefone do cliente.';
 
--- Constraints
+-- Constraints da tabela clientes
 ALTER TABLE clientes ADD CONSTRAINT chk_client_id CHECK (client_id >= 0);
 ALTER TABLE clientes ADD CONSTRAINT chk_nome CHECK (nome <> ' ');
 
@@ -149,7 +149,7 @@ COMMENT ON COLUMN envios.client_id 	    IS 'Id do cliente que realizou o envio. 
 COMMENT ON COLUMN envios.endereco_entrega IS 'Endereço de entrega do envio.';
 COMMENT ON COLUMN envios.status 	    IS 'Status do envio.';
 
--- Constraints
+-- Constraints da tabela envios
 ALTER TABLE envios ADD CONSTRAINT chk_status CHECK (status IN ('Criado', 'Enviado', 'Transito', 'Entregue'));
 
 -- Cria a tabela "pedidos" e adiciona os comentários
@@ -169,7 +169,7 @@ COMMENT ON COLUMN pedidos.client_id   	IS 'Id do cliente que realizou o pedido. 
 COMMENT ON COLUMN pedidos.status      	IS 'Status do pedido.';
 COMMENT ON COLUMN pedidos.loja_id     	IS 'Id da loja que realizou o pedido. (FK da tabela lojas)';
 
--- Constraints
+-- Constraints da tabela pedidos
 ALTER TABLE pedidos ADD CONSTRAINT chk_status CHECK (status IN ('Cancelado', 'Completo', 'Aberto', 'Pago', 'Reembolsado', 'Enviado'));
 
 -- Cria a tabela "itens" e adiciona os comentários
@@ -191,7 +191,7 @@ COMMENT ON COLUMN pedidos_itens.preco_unitario  IS 'Preco unitário do produto p
 COMMENT ON COLUMN pedidos_itens.quantidade 	  	IS 'Quantidade do item pedido,';
 COMMENT ON COLUMN pedidos_itens.envio_id        IS 'Id do envio. (PK da tabela envios)';
 
--- Constraints
+-- Constraints da tabela pedidos_itens
 ALTER TABLE pedidos_itens ADD CONSTRAINT chk_numero_da_linha CHECK (numero_da_linha >= 0);
 ALTER TABLE pedidos_itens ADD CONSTRAINT chk_quantidade CHECK (envio_id >= 0);
 
