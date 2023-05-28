@@ -170,7 +170,7 @@ COMMENT ON COLUMN pedidos.status      	IS 'Status do pedido.';
 COMMENT ON COLUMN pedidos.loja_id     	IS 'Id da loja que realizou o pedido. (FK da tabela lojas)';
 
 -- Constraints da tabela pedidos
-ALTER TABLE pedidos ADD CONSTRAINT chk_status CHECK (status IN ('Cancelado', 'Completo', 'Aberto', 'Pago', 'Reembolsado', 'Enviado'));
+ALTER TABLE pedidos ADD CONSTRAINT chk_status CHECK (status IN ('CANCELADO', 'COMPLETO', 'ABERTO', 'PAGO', 'REEMBOLSADO', 'ENVIADO'));
 
 -- Cria a tabela "itens" e adiciona os comentários
 CREATE TABLE pedidos_itens (
