@@ -17,4 +17,4 @@
 
 
 # Projeto Lógico do banco de dados desenvolvido no SQL Power Architect:
-![image](https://github.com/Morgadineo/uvv_bd1_cc1mb/assets/106524323/026d0792-169c-4b7d-86bc-b6f211a8f151)
+![image](https://github.com/Morgadineo/uvv_bd1_cc1mb/assets/106524323/c30c80a5-fb7c-49d6-b78f-0c74c420204e)
