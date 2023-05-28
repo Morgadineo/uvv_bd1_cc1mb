@@ -1,8 +1,7 @@
-# Arthur Morgado Teixeira. Professor: Abrantes Araújo Silva Filho. Monitora: Suellen Miranda Amorim.
-
-## PSET de Banco de Dados.
-### Realizado pelo professor Abrantes Araújo Silva Filho na Universidade Vila Velha.
- ![image](https://github.com/Morgadineo/uvv_bd1_cc1mb/assets/106524323/ee560357-2d27-44bd-b044-8a460314c5e4)
+# PSET de Banco de Dados 1
+## Arthur Morgado Teixeira
+## Professor: Abrantes Araújo Silva Filho 
+## Monitora: Suellen Miranda Amorim
 
 ## O que é PSET?
 ### PSET (abreviação de "problem set") é um conjunto de questões e problemas desafiadores que são projetados para forçar o aluno a utilizar tudo o que aprendeu sobre a matéria para resolver as questões. Grandes universidades de renome como a Universidade de Harvard e Massachusetts Institute of Technology (MIT) utilizam o PSET como metódo de avaliação.
