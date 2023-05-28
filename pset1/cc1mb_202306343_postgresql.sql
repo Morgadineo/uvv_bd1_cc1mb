@@ -86,7 +86,6 @@ COMMENT ON COLUMN lojas.logo_ultima_atualizacao 	IS 'Data de ultima atualizaçã
 
 -- Constraints da tabela lojas
 ALTER TABLE lojas ADD CONSTRAINT chk_loja_id 	CHECK (loja_id >= 0);
-ALTER TABLE lojas ADD CONSTRAINT chk_nome 		CHECK (nome <> ' ');
 ALTER TABLE lojas ADD CONSTRAINT chk_enderecos 	CHECK(endereco_web IS not null OR endereco_fisico IS not null);
 
 -- Cria a tabela "estoques" e adiciona os comentários
@@ -150,7 +149,7 @@ COMMENT ON COLUMN envios.endereco_entrega   IS 'Endereço de entrega do envio.';
 COMMENT ON COLUMN envios.status 	    IS 'Status do envio.';
 
 -- Constraints da tabela envios
-ALTER TABLE envios ADD CONSTRAINT chk_status CHECK (status IN ('Criado', 'Enviado', 'Transito', 'Entregue'));
+ALTER TABLE envios ADD CONSTRAINT chk_status CHECK (status IN ('CRIADO', 'ENVIADO', 'TRANSITO', 'ENTREGUE'));
 
 -- Cria a tabela "pedidos" e adiciona os comentários
 CREATE TABLE pedidos (
