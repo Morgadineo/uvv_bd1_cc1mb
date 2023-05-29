@@ -21,7 +21,7 @@ CREATE DATABASE uvv
 	LC_COLLATE 'pt_BR.UTF-8'
 	LC_CTYPE 'pt_BR.UTF-8'
 	ALLOW_CONNECTIONS true;
-
+COMMENT ON DATABASE uvv 	IS 'Banco de dados da UVV'
 -- Comando do Postgre para conectar no banco de dados "uvv" com o usuário "arthur" com a senha "123"
 \c 'dbname=uvv user=arthur password=123';
 
