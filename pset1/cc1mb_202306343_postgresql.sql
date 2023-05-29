@@ -2,10 +2,10 @@
 DROP DATABASE 	IF EXISTS uvv;
 
 -- Apaga o usuário "arthur" caso já exista
-DROP USER 	IF EXISTS arthur;
+DROP USER 	IF EXISTS arthur_morgado;
 
 -- Cria o usuário "arthur" com a senha "123" com a permissão para criar banco de dados.
-CREATE USER arthur WITH password '123' CREATEDB;
+CREATE USER arthur_morgado WITH password '123' CREATEDB;
 
 /* Cria o banco de dados "uvv" com os seguintes atributos:
 "OWNER" define o nome do proprietário do banco de dados, no caso "arthur" que terá as opções de administrador
@@ -15,24 +15,26 @@ CREATE USER arthur WITH password '123' CREATEDB;
 "LC_CTYPE" define a configuração dos tipos de caracteres, usando "pt_BR.UTF-8" padrão brasileiro.
 "ALLOW_CONNECTIONS" é para especificar se o banco de dados aceita conexões. No caso "TRUE" */
 CREATE DATABASE uvv
-	OWNER arthur
+	OWNER arthur_morgado
 	TEMPLATE template0
 	ENCODING 'UTF8'
 	LC_COLLATE 'pt_BR.UTF-8'
 	LC_CTYPE 'pt_BR.UTF-8'
 	ALLOW_CONNECTIONS true;
-COMMENT ON DATABASE uvv 	IS 'Banco de dados da UVV'
+
+COMMENT ON DATABASE uvv 	IS 'Banco de dados da UVV';
+
 -- Comando do Postgre para conectar no banco de dados "uvv" com o usuário "arthur" com a senha "123"
-\c 'dbname=uvv user=arthur password=123';
+\c 'dbname=uvv user=arthur_morgado password=123';
 
 -- Cria o SCHEMA "lojas" com autorização para o usuário "arthur"
-CREATE SCHEMA lojas AUTHORIZATION arthur;
+CREATE SCHEMA lojas AUTHORIZATION arthur_morgado;
 
 /* O comando "SET SEARCH_PATH" define o caminho de pesquisa em que o Postgre procurará os objetos por padrão, caso haja consultas.
 "lojas" é o esquema definido por padrão.
 "$user" representa o nome do usuário atualmente conectado, onde o Postgre procurará os objetos do esquema.
 "public" é o esquema padrão do Postgre, que será usado caso não seja encontrado o esquema e nem o usuário. */
-ALTER USER arthur SET SEARCH_PATH TO lojas, "$user", public;
+ALTER USER arthur_morgado SET SEARCH_PATH TO lojas, "$user", public;
 SET search_path TO lojas, '$user', public;
 
 -- Cria a tabela "produtos" e adiciona os comentários da tabela e das colunas.
